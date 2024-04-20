@@ -35,7 +35,7 @@ export const useTokensRates = () => {
       const itemTime = new Date(item.time);
       const diffInHours =
         (lastRateTime.getTime() - itemTime.getTime()) / (1000 * 60 * 60);
-      return diffInHours > 1;
+      return diffInHours >= 1;
     });
 
     if (rateFromAnHourAgo) {
