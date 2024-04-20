@@ -1,15 +1,17 @@
-"use client";
-
 import { DialogProps } from "@/app/components/Dialog/Dialog.types";
 import styles from "./Dialog.module.scss";
 import PriceChangeIndicator from "@/app/components/PriceChangeIndicator/PriceChangeIndicator";
 import Button from "@/app/components/Button/Button";
 import { useEffect, useState } from "react";
+import { useTokens } from "@/app/hooks/tokens/useTokens";
+import { formatPrice } from "@/app/utils/utils";
 export default function Dialog({ open, onClose }: DialogProps) {
   const [currentAccount, setCurrentAccount] = useState("");
+  const { ethPrice, exchangeRate } = useTokens();
 
   useEffect(() => {
     const { ethereum } = window;
+    // @ts-ignore
     ethereum?.on("accountsChanged", (accounts: any) => {
       if (accounts[0]) {
         setCurrentAccount(accounts[0]);
@@ -45,8 +47,8 @@ export default function Dialog({ open, onClose }: DialogProps) {
           <div className={styles.panel}>
             <div className={styles.panelItem}>
               <div className={styles.exchangeRate}>
-                <p>1 ETH = 0.04888019623 WBTC</p>
-                <span>($3,047.93)</span>
+                <p>1 ETH = {exchangeRate} WBTC</p>
+                <span>({formatPrice(ethPrice)})</span>
               </div>
             </div>
             <div className={styles.panelItem}>
