@@ -12,6 +12,7 @@ export default function Dialog({ open, onClose }: DialogProps) {
   const { tokensRatesData, dayChange, lastHourChange } = useTokensRates();
 
   useEffect(() => {
+    // @ts-ignore
     const { ethereum } = window;
     // @ts-ignore
     ethereum?.on("accountsChanged", (accounts: any) => {
@@ -25,6 +26,7 @@ export default function Dialog({ open, onClose }: DialogProps) {
   }, []);
 
   const handleConnectWallet = async () => {
+    // @ts-ignore
     const ethereum = window.ethereum;
 
     if (ethereum) {
