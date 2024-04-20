@@ -5,9 +5,11 @@ import Button from "@/app/components/Button/Button";
 import { useEffect, useState } from "react";
 import { useTokens } from "@/app/hooks/tokens/useTokens";
 import { formatPrice } from "@/app/utils/utils";
+import { useTokensRates } from "@/app/hooks/tokens/useTokensRatesHistory";
 export default function Dialog({ open, onClose }: DialogProps) {
   const [currentAccount, setCurrentAccount] = useState("");
   const { ethPrice, exchangeRate } = useTokens();
+  const { tokensRatesData, dayChange, lastHourChange } = useTokensRates();
 
   useEffect(() => {
     const { ethereum } = window;
@@ -55,11 +57,13 @@ export default function Dialog({ open, onClose }: DialogProps) {
               <div className={styles.priceChange}>
                 <div className={styles.priceChangeItem}>
                   <p>Price change 24h</p>
-                  <PriceChangeIndicator priceChangePercentage={10} />
+                  <PriceChangeIndicator priceChangePercentage={dayChange} />
                 </div>
                 <div className={styles.priceChangeItem}>
                   <p>Price change 1h</p>
-                  <PriceChangeIndicator priceChangePercentage={-5} />
+                  <PriceChangeIndicator
+                    priceChangePercentage={lastHourChange}
+                  />
                 </div>
               </div>
             </div>
