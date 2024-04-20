@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className={styles.pageCentered}>
       <Button onClick={handleOpenDialog}>Open Dialog</Button>
-      <Dialog open={true} onClose={handleCloseDialog} />
+      <Dialog open={dialogOpen} onClose={handleCloseDialog} />
     </div>
   );
 }
