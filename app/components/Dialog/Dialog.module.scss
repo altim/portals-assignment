@@ -1,0 +1,71 @@
+.dialogOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.dialog {
+  border-radius: 12px;
+  border: 1px solid #9489a7;
+  max-width: 600px;
+  width: 100%;
+  background: #2c1652;
+}
+
+.dialogInner {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 20px;
+}
+
+.panel {
+  border: 2px solid #432e64;
+  border-radius: 12px;
+  background: #352158;
+}
+
+.panelItem {
+  padding: 20px;
+  border-top: 2px solid #432e64;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.exchangeRate {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  grid-column-gap: 20px;
+  color: #fff;
+
+  span {
+    color: #9489a7;
+    letter-spacing: 0.05em;
+  }
+}
+
+.priceChange {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1em;
+}
+
+.priceChangeItem {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  color: #9f91b4;
+  font-size: 18px;
+}

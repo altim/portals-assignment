@@ -1,0 +1,15 @@
+.priceChange {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-column-gap: 2px;
+  align-items: center;
+  font-size: 20px;
+}
+
+.positive {
+  color: #71c10b;
+}
+
+.negative {
+  color: red;
+}
